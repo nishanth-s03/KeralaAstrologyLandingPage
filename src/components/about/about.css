@@ -1,0 +1,241 @@
+:root {
+  --main-div: white;
+  --div-color: rgb(255, 174, 0);
+  --htag-color: rgb(1, 1, 63);
+  --ptag-color: aliceblue;
+
+  --ptag-font-size: 16px;
+  --h2tag-font-size: 34px;
+}
+
+.about-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0px;
+}
+/* includes image and about-us-content */
+.about-us-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 90px;
+  background-color: var(--main-div);
+  color: var(--htag-color);
+}
+
+.about-us-image {
+  height: 50%;
+  max-width: 100%;
+  border-radius: 25px;
+}
+/* includes our-story,our-mission and statistics */
+.about-us-text {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  gap: 20px;
+}
+
+.our-story {
+  border-radius: 9px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--div-color);
+}
+
+.our-story h2 {
+  font-size: var(--h2tag-font-size);
+  text-align: left;
+}
+
+.our-story h3 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.our-story p {
+  font-size: var(--ptag-font-size);
+  color: var(--ptag-color);
+  text-align: justify;
+}
+
+.our-mission {
+  border-radius: 9px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--div-color);
+}
+
+.our-mission h2 {
+  font-size: var(--h2tag-font-size);
+  color: var(--htag-color);
+}
+
+.our-mission p {
+  font-size: var(--ptag-font-size);
+  color: var(--ptag-color);
+  text-align: justify;
+}
+/* includes our-mission and statistics */
+.mission-statistics {
+  display: flex;
+  gap: 20px;
+}
+
+.statistics {
+  background-color: var(--div-color);
+  border-radius: 9px;
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  align-items: center;
+}
+
+.statistics h1 {
+  font-size: 35px;
+}
+
+.statistics p {
+  font-size: var(--ptag-font-size);
+}
+
+.statistic-content {
+  width: 100px;
+}
+
+/* -------------------------------------------------Media Queries--------------------------------------- */
+
+@media (max-width: 1200px) {
+  .about-us-content {
+    flex-direction: column;
+    padding: 40px;
+  }
+  .about-us-image {
+    width: 100%;
+  }
+  .our-mission h2,
+  .our-story h2 {
+    font-size: 28px;
+  }
+  .our-story h3 {
+    font-size: 24px;
+  }
+  .our-mission p,
+  .our-story p,
+  .statistics p {
+    font-size: 20px;
+  }
+  .statistic-content {
+    gap: 10px;
+  }
+  .mission-statistics {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+}
+
+@media (max-width: 420px) {
+  .about-us-content {
+    padding: 20px;
+  }
+  .about-us-image {
+    width: 100%;
+  }
+  .our-story,
+  .our-mission {
+    padding: 20px;
+  }
+  .our-story h2,
+  .our-mission h2 {
+    font-size: 26px;
+  }
+  .our-story h3 {
+    font-size: 24px;
+  }
+  .our-mission p,
+  .our-story p,
+  .statistics p {
+    font-size: 18px;
+  }
+  .statistics {
+    padding: 30px 0px;
+    display: flex;
+    justify-content: center;
+  }
+  .statistic-content {
+    gap: 10px;
+  }
+  .statistics h1 {
+    font-size: 30px;
+  }
+  .mission-statistics {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  
+}
+@media (max-width: 600px) {
+  .about-us-content {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .about-us-text {
+    gap: 10px;
+  }
+
+  .about-us-image {
+    width: 100%;
+  }
+
+  .our-story,
+  .our-mission {
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .our-story h2,
+  .our-mission h2 {
+    font-size: 20px;
+  }
+
+  .our-story h3 {
+    font-size: 16px;
+  }
+
+  .our-story p,
+  .our-mission p,
+  .statistics p {
+    font-size: 12px;
+  }
+  .statistics {
+    height: fit-content;
+    padding: 20px;
+  }
+  .statistics h1 {
+    font-size: 20px;
+  }
+  .statistic-content {
+    gap: 10px;
+  }
+  .mission-statistics {
+    flex-direction: row;
+    gap: 10px;
+  }
+}
