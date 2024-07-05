@@ -1,0 +1,207 @@
+/* home.css */
+*{
+  scroll-behavior: smooth;
+}
+
+.hero-section {
+  position: relative;
+}
+
+.hero-background {
+  width: 100%;
+  height: fit-content;
+}
+
+.hero-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  height: 98%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.432);
+  padding: 5vw;
+  padding-bottom: 15vw; 
+}
+
+.text-content {
+  text-align: center;
+  color: white;
+  font-size: 1.5vw; 
+}
+
+.main-title {
+  font-size: 4vw; 
+  font-weight: bold;
+  padding: 4vw 0;
+}
+
+.author,
+.slogan,
+.call-now,
+.address1,
+.address2 {
+  font-size: 1.5vw; 
+  padding: 1vw 0;
+}
+
+.section-title {
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  text-align: center;
+}
+
+.title-text {
+  font-size: 2vw; 
+  font-weight: bold;
+  color: rgba(0, 0, 3, 0.8);
+}
+
+.services-section {
+  padding: 2rem 10rem;
+  display: flex;
+  justify-content: center;
+  gap: 2vw; 
+}
+
+.service-item-result
+{
+  width: 23%;
+  height: 18%; 
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+.service-item {
+  width: 23%; 
+  height: auto; 
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.service-card {
+  width: 100%;
+  height: 100%;
+  background-color: #030129;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+}
+
+.service-image {
+  width: 60%;
+  object-fit: cover;
+  border-radius: 50%;
+  padding-bottom: 1vw; 
+}
+
+.service-text {
+  text-align: center;
+  padding: 0.5vw;
+}
+
+.service-label,
+.service-label-nobold {
+  font-size: 1vw; 
+  font-weight: bold;
+  color: white;
+}
+
+.service-label-nobold {
+  color: #ffffffc5;
+}
+
+@media screen and (max-width: 768px) {
+  .hero-overlay {
+    padding: 5vw;
+    padding-bottom: 10vw;
+  }
+
+  .ham
+
+  .main-title {
+    font-size: 3vw;
+  }
+
+  .author,
+  .slogan {
+    font-size: 1vw;
+  }
+
+  .call-now {
+    font-size: 0.75vw;
+  }
+
+  .address1 {
+    font-size: 1vw;
+  }
+
+  .address2 {
+    font-size: 0.75vw;
+  }
+
+  .title-text {
+    font-size: 1.25vw;
+  }
+
+  .service-label,
+  .service-label-nobold {
+    font-size: 0.75vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-overlay {
+    padding: 5vw;
+    padding-bottom: 5vw;
+  }
+
+  .main-title {
+    font-size: 2.5vw;
+  }
+
+  .author,
+  .slogan {
+    font-size: 0.75vw;
+  }
+
+  .call-now {
+    font-size: 0.5vw;
+  }
+
+  .address1 {
+    font-size: 0.75vw;
+  }
+
+  .address2 {
+    font-size: 0.5vw;
+  }
+
+  .title-text {
+    font-size: 1vw;
+  }
+
+  .service-label,
+  .service-label-nobold {
+    font-size: 0.5vw;
+  }
+}
