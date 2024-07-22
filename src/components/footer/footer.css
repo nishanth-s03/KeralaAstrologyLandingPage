@@ -225,6 +225,7 @@ padding:10px;  /* padding: 20px; */
   align-items: center;
   padding: 20px;
   width:fit-content;
+  gap:20px;
 }
 
 .title {
@@ -241,8 +242,12 @@ padding:10px;  /* padding: 20px; */
 }
 
 .logoimg {
-  width: 60px;
-  height: fit-content;
+
+  width: 100px;
+height: 100px;
+max-height: 100px;
+max-width: 100px;
+object-fit: contain;
 }
 
 .logo-content {
@@ -362,13 +367,14 @@ h4 {
   padding-right: 10px;
   position: relative;
   /* left: -15px; */
-  padding: 20px;
+  padding: 15px;
+  top:-10px;
 }
 
 .form-email {
   position: relative;
   top: -38px;
-  left: -80px;
+  left: -58px;
   padding: 20px;
   font-size: 11px;
 }
@@ -612,7 +618,7 @@ object-fit: contain;
   
   }
   .whatsapp img{
-    width:20%;
+    width:60px;
     /* width: 100px; */
 height: 100px;
 max-height: 100px;
@@ -623,14 +629,14 @@ object-fit: contain;
   .whatsapp-icon{
     position: fixed;
     bottom:20px;
-    left: 30px;
+    left: 20px;
     z-index: 1;
     width:80%;
   }
 .call-icon{
   position: fixed;
   bottom: 20px;
-  right: 32px;
+  right: 50px;
   z-index: 1;
   width:9%;
 }
@@ -668,6 +674,12 @@ object-fit: contain;
     padding: 10px;
   
   }
+  .title-2 {
+    display: flex;
+    justify-content: center;
+    padding-left: 50px;
+  }
+ 
   .mock-msg {
     height: fit-content;
     word-wrap: break-word;
@@ -717,6 +729,13 @@ object-fit: contain;
       padding-right: 0;
       width:100%; /* Adjust padding as per your design */
     }
+    .logoimg {
+      width: 50px;
+      height: 50px;
+      max-height: 50px;
+      max-width: 50px;
+      object-fit: contain;
+    }
   
     .container-2 {
       flex-direction: column;
@@ -735,8 +754,10 @@ object-fit: contain;
     .form-email{
       display: flex;
       justify-content: center;
-      padding: 20px;
+      padding: 10px;
       padding-bottom: 0px;
+      position:relative;
+      left:-40px;
     }
    
   
