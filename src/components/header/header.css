@@ -1,5 +1,4 @@
 /* Import Google Font */
-@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap");
 
 
 * {
@@ -25,7 +24,7 @@ ul {
   width: 100%;
   height: auto;
   display: grid;
-  grid-template-columns: 10rem 1fr 0.5fr 10rem;
+  grid-template-columns: 8rem 1fr 0.5fr 8rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   padding: 0;
@@ -113,7 +112,7 @@ ul {
 }
 
 .logo h2 {
-  font-size: 2.5rem; 
+  font-size: 2.2rem; 
   font-weight: 500;
   text-transform: capitalize;
   color: rgba(0, 0, 3, 0.8);
@@ -132,8 +131,13 @@ ul {
 }
 
 .logo-img {
-  max-width: 100px; 
-  padding: 1rem;
+  /* max-width: 100px; 
+  padding: 1rem; */
+  width: 100px;
+height: 100px;
+max-height: 100px;
+max-width: 100px;
+object-fit: contain;
 }
 
 .logo-text {
@@ -164,7 +168,7 @@ ul {
 
 @media (max-width: 930px) {
   .main-nav {
-    grid-template-columns: 6rem 1fr 0.09fr;
+    grid-template-columns: 3rem 1fr 0.09fr 3rem;
   }
 
   .header-up {
@@ -187,7 +191,10 @@ ul {
   }
 
   .logo-img {
-    max-width: 50px; 
+height: 50px;
+max-height: 50px;
+max-width: 50px;
+object-fit: contain;
     padding: 1rem;
   }
 
