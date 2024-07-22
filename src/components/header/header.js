@@ -1,4 +1,4 @@
-import React , { useState }from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   FaFacebookSquare,
   FaInstagramSquare,
@@ -9,8 +9,26 @@ import {
 import { GiHamburgerMenu } from "react-icons/gi";
 import mahakali from "./images/Mahakali_Maa.png";
 import "./header.css";
+
 const Navbar = () => {
   const [showMediaIcons, setShowMediaIcons] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowMediaIcons(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+ 
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <>
       <nav className="main-nav">
@@ -57,7 +75,6 @@ const Navbar = () => {
                 </a>
               </li>
             </ul>
-        
           </div>
         </div>
         <div className="logo">
@@ -70,11 +87,8 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* <div className="menu-link"> */}
-        <div
-          className={
-            showMediaIcons ? "mobile-menu-link" : " menu-link"
-          }>
+        {/* Menu links section */}
+        <div className={showMediaIcons ? "mobile-menu-link" : "menu-link"} ref={menuRef}>
           <ul>
             <li>
               <a href="#home">Home</a>
@@ -88,16 +102,16 @@ const Navbar = () => {
             <li>
               <a href="#footer">Contact</a>
             </li>
-            <li>
-            </li>
           </ul>
-          
         </div>
-        <div className="hamburger-menu"  onClick={() => setShowMediaIcons(!showMediaIcons)}>
-              <GiHamburgerMenu className="ham"/>
-          </div>
+
+    
+        <div className="hamburger-menu" onClick={() => setShowMediaIcons(!showMediaIcons)}>
+          <GiHamburgerMenu className="ham" />
+        </div>
       </nav>
     </>
   );
 };
+
 export default Navbar;

@@ -67,7 +67,7 @@
 }
 
 .services-section {
-  padding: 2rem 10rem;
+  padding: 2rem 8rem;
   display: flex;
   justify-content: center;
   gap: 2vw; 
@@ -160,12 +160,15 @@
   }
 
   .title-text {
-    font-size: 1.25vw;
+    font-size: 1.6vw;
   }
 
   .service-label,
   .service-label-nobold {
-    font-size: 0.75vw;
+    font-size: 1vw;
+  }
+  .services-section {
+    padding: 2vw 6vw;
   }
 }
 
@@ -197,11 +200,11 @@
   }
 
   .title-text {
-    font-size: 1vw;
+    font-size: 1.6vw;
   }
 
   .service-label,
   .service-label-nobold {
-    font-size: 0.5vw;
+    font-size: 0.9vw;
   }
 }
