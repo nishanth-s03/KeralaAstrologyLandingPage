@@ -139,28 +139,28 @@
   .ham
 
   .main-title {
-    font-size: 3vw;
+    font-size: 4.2vw;
   }
 
   .author,
   .slogan {
-    font-size: 1vw;
+    font-size: 2.6vw;
   }
 
   .call-now {
-    font-size: 0.75vw;
+    font-size: 1.5vw;
   }
 
   .address1 {
-    font-size: 1vw;
+    font-size: 2.4vw;
   }
 
   .address2 {
-    font-size: 0.75vw;
+    font-size: 2.4vw;
   }
 
   .title-text {
-    font-size: 1.6vw;
+    font-size: 1.7vw;
   }
 
   .service-label,
@@ -174,37 +174,37 @@
 
 @media screen and (max-width: 480px) {
   .hero-overlay {
-    padding: 5vw;
+    padding: 4vw;
     padding-bottom: 5vw;
   }
 
   .main-title {
-    font-size: 2.5vw;
+    font-size: 4vw;
   }
 
   .author,
   .slogan {
-    font-size: 0.75vw;
+    font-size: 2.6vw;
   }
 
   .call-now {
-    font-size: 0.5vw;
+    font-size: 2.3vw;
   }
 
   .address1 {
-    font-size: 0.75vw;
+    font-size: 2.1vw;
   }
 
   .address2 {
-    font-size: 0.5vw;
+    font-size: 1.8vw;
   }
 
   .title-text {
-    font-size: 1.6vw;
+    font-size: 2.7vw;
   }
 
   .service-label,
   .service-label-nobold {
-    font-size: 0.9vw;
+    font-size: 1.6vw;
   }
 }
