@@ -1,7 +1,6 @@
 import { Box, Button, Typography } from '@mui/material'
 import CallOutlined from '@mui/icons-material/CallOutlined'
 
-import './Home.css'
 import HomeCard from '../Card/HomeCard'
 import PropTypes from 'prop-types'
 
