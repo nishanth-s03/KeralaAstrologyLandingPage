@@ -42,7 +42,7 @@ const FloatingBar = ({ phone }) => {
       sx={{ background: 'var(--dark)', boxShadow: '0 0 4px var(--light)' }}
     >
       <IconButton
-        href={`wa.me/${phone}`}
+        href={`https://wa.me/${phone}`}
         target='_blank'
       >
         <WhatsApp htmlColor='var(--light)' />
@@ -167,7 +167,7 @@ const Header = ({ links }) => {
             variant='caption'
             textTransform={'capitalize'}
           >
-            Near Bunts Hostel, Mangaluru
+            Bunts Hostel, Mangaluru
           </Typography>
         </Button>
 
@@ -307,7 +307,7 @@ const Navbar = ({ links }) => {
             onClick={handleClick}
             aria-label='menu dropdown'
           >
-            <MenuOutlined />
+            <MenuOutlined htmlColor='var(--dark)' />
           </IconButton>
         </Toolbar>
         <Menubar

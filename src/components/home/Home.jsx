@@ -6,8 +6,8 @@ import PropTypes from 'prop-types'
 
 const Home = ({ isSmallScreen, links }) => {
   const urlToImage = isSmallScreen
-    ? 'url(/assets/zodiac.png)'
-    : 'url(/assets/zodiac-mobile.png)'
+    ? 'url(/assets/zodiac.webp)'
+    : 'url(/assets/zodiac-mobile.webp)'
 
   return (
     <>
@@ -67,7 +67,7 @@ const Home = ({ isSmallScreen, links }) => {
             align='center'
             gutterBottom
           >
-            An opportunity to change your life.
+            An opportunity to change your life
           </Typography>
           <Button
             variant='outlined'

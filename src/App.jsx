@@ -1,15 +1,26 @@
-import { Box, Typography, useMediaQuery, useTheme } from '@mui/material'
+import {
+  Box,
+  Divider,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material'
 
 import Navbar from './components/Navbar/Navbar'
 
 import './App.css'
 import CardGrid from './components/Grid/CardGrid'
 import ServiceCard from './components/Card/ServiceCard'
+import Home from './components/home/Home'
+import Testimonials from './components/Testimonials/Testimonials'
 
+import Logo from '/assets/Mahakali_Maa.webp'
 import img from '/assets/116656.png'
+
 import services from './data/services.json'
 import links from './data/link.json'
-import Home from './components/home/Home'
+import ContactSection from './components/Contact/Contact'
+import Footer from './components/Footer/Footer'
 
 const App = () => {
   const theme = useTheme()
@@ -30,6 +41,8 @@ const App = () => {
         />
       </Box>
 
+      <Divider />
+
       <Box
         id='about'
         marginBlock={2}
@@ -48,6 +61,8 @@ const App = () => {
         </Typography>
         <CardGrid />
       </Box>
+
+      <Divider />
 
       <Box
         id='services'
@@ -101,9 +116,11 @@ const App = () => {
         </Box>
       </Box>
 
-      {/* <Box
+      <Divider />
+
+      <Box
         id='testimonials'
-        paddingTop={10}
+        paddingBlock={5}
         paddingInline={2}
       >
         <Typography
@@ -115,8 +132,36 @@ const App = () => {
         >
           Happy Customers
         </Typography>
-        <Box></Box>
-      </Box> */}
+        <Testimonials />
+      </Box>
+
+      <Divider />
+
+      <Box
+        id='contact'
+        paddingBlock={10}
+        paddingInline={2}
+        display={'flex'}
+        flexDirection={'column'}
+        width={'calc(100% - 2rem)'}
+      >
+        <Typography
+          variant='h4'
+          fontFamily={'var(--font-title)'}
+          fontWeight={700}
+          align='center'
+          gutterBottom
+        >
+          Get in Touch
+        </Typography>
+        <ContactSection
+          Logo={Logo}
+          isSmallScreen={isSmallScreen}
+          links={links}
+        />
+      </Box>
+
+      <Footer links={links} />
     </>
   )
 }
