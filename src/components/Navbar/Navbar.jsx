@@ -63,7 +63,7 @@ const FloatingBar = ({ phone }) => {
 }
 
 FloatingBar.propTypes = {
-  phone: PropTypes.number.isRequired,
+  phone: PropTypes.string.isRequired,
 }
 
 const Menubar = ({ anchorEl, handleClose, open }) => {
@@ -257,7 +257,12 @@ const Navbar = ({ links }) => {
       <AppBar
         position='sticky'
         color='transparent'
-        sx={{ top: 0, backdropFilter: 'blur(0.5rem)' }}
+        sx={{
+          top: 0,
+          background:
+            'radial-gradient(farthest-corner at 50% 0, transparent, #f2f2f2cc)',
+          backdropFilter: 'blur(0.5rem)',
+        }}
       >
         <Toolbar>
           <Box
@@ -319,7 +324,7 @@ Navbar.propTypes = {
   links: PropTypes.shape({
     locationLink: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    phone: PropTypes.number.isRequired,
+    phone: PropTypes.string.isRequired,
     facebookLink: PropTypes.string.isRequired,
     instagramLink: PropTypes.string.isRequired,
     youtubeLink: PropTypes.string.isRequired,

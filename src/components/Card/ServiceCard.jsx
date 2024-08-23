@@ -22,7 +22,17 @@ const ServiceCard = ({ title, description, image }) => {
 
   return (
     <>
-      <Card sx={{ width: { xs: '85%', sm: '30%' } }}>
+      <Card
+        sx={{
+          filter: 'grayscale(1)',
+          transform: 'scale(1)',
+          transition: 'all 0.3s ease-in',
+          [`&:hover`]: {
+            filter: 'none',
+            transform: 'scale(1.025)',
+          },
+        }}
+      >
         <CardActionArea
           onClick={handleClickOpen}
           sx={{

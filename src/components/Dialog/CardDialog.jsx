@@ -5,7 +5,6 @@ import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
 import Slide from '@mui/material/Slide'
 import PropTypes from 'prop-types'
-import { Typography } from '@mui/material'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return (
@@ -21,7 +20,7 @@ const CardDialogSlide = ({ open, handleClose, title, description, image }) => {
   return (
     <Dialog
       fullWidth
-      maxWidth='xs'
+      maxWidth='sm'
       open={open}
       TransitionComponent={Transition}
       keepMounted
@@ -29,14 +28,13 @@ const CardDialogSlide = ({ open, handleClose, title, description, image }) => {
       aria-labelledby='dialog-title'
       aria-describedby='dialog-description'
     >
-      <DialogTitle id='dialog-title'>
-        <Typography
-          variant='h5'
-          fontFamily={'var(--font-title)'}
-          fontWeight={600}
-        >
-          {title}
-        </Typography>
+      <DialogTitle
+        id='dialog-title'
+        variant='h5'
+        fontFamily={'var(--font-title)'}
+        fontWeight={600}
+      >
+        {title}
       </DialogTitle>
       <DialogContent>
         <img
