@@ -133,7 +133,7 @@ const Header = ({ links }) => {
           target='_blank'
           aria-label='location'
         >
-          <PlaceOutlined />
+          <PlaceOutlined htmlColor='var(--dark)' />
         </IconButton>
 
         <Divider
@@ -146,7 +146,7 @@ const Header = ({ links }) => {
           href={`mailto:${links.email}`}
           aria-label='email'
         >
-          <EmailOutlined />
+          <EmailOutlined htmlColor='var(--dark)' />
         </IconButton>
       </Box>
 
@@ -202,7 +202,7 @@ const Header = ({ links }) => {
           title='Facebook'
           aria-label='facebook'
         >
-          <FacebookOutlined />
+          <FacebookOutlined htmlColor='var(--dark)' />
         </IconButton>
         <IconButton
           size='small'
@@ -211,7 +211,7 @@ const Header = ({ links }) => {
           title='Instagram'
           aria-label='instagram'
         >
-          <Instagram />
+          <Instagram htmlColor='var(--dark)' />
         </IconButton>
         <IconButton
           size='small'
@@ -220,7 +220,7 @@ const Header = ({ links }) => {
           title='YouTube'
           aria-label='youtube'
         >
-          <YouTube />
+          <YouTube htmlColor='var(--dark)' />
         </IconButton>
       </Box>
     </Box>

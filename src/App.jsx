@@ -5,11 +5,11 @@ import Navbar from './components/Navbar/Navbar'
 import './App.css'
 import CardGrid from './components/Grid/CardGrid'
 import ServiceCard from './components/Card/ServiceCard'
-import HomeCard from './components/Card/HomeCard'
 
 import img from '/assets/116656.png'
 import services from './data/services.json'
 import links from './data/link.json'
+import Home from './components/home/Home'
 
 const App = () => {
   const theme = useTheme()
@@ -22,51 +22,12 @@ const App = () => {
 
       <Box
         id='home'
-        paddingTop={10}
-        paddingInline={2}
+        padding={2}
       >
-        <Typography
-          variant='h4'
-          fontFamily={'var(--font-title)'}
-          fontWeight={600}
-          align='center'
-          gutterBottom
-        >
-          No. 1 Astrologer in Dakshina Kannada
-        </Typography>
-        <Box
-          display={'flex'}
-          flex={1}
-          flexWrap={'wrap'}
-          justifyContent={'center'}
-          alignItems={'center'}
-          gap={1}
-        >
-          <HomeCard
-            imageSrc='/assets/home/1395711.jpg'
-            altTitle='Results'
-            mainTitle='Guaranteed results'
-            subTitle='100% results'
-          />
-          <HomeCard
-            imageSrc='/assets/home/world.jpg'
-            altTitle='Worldwide'
-            mainTitle='Worldwide'
-            subTitle='services'
-          />
-          <HomeCard
-            imageSrc='/assets/home/116656.png'
-            altTitle='Friendly'
-            mainTitle='Friendly'
-            subTitle='Astrologer'
-          />
-          <HomeCard
-            imageSrc='/assets/home/students.jpg'
-            altTitle='Results'
-            mainTitle='Free'
-            subTitle='for students'
-          />
-        </Box>
+        <Home
+          isSmallScreen={isSmallScreen}
+          links={links}
+        />
       </Box>
 
       <Box
@@ -123,7 +84,7 @@ const App = () => {
               justifyContent={'flex-start'}
               alignItems={'flex-start'}
               gap={2}
-              width={isSmallScreen ? `calc(95%/${columns.length})` : '95%'}
+              width={isSmallScreen ? `calc(93%/${columns.length})` : '93%'}
             >
               {services
                 .filter((_, index) => index % columns.length === topIndex)
@@ -139,6 +100,23 @@ const App = () => {
           ))}
         </Box>
       </Box>
+
+      {/* <Box
+        id='testimonials'
+        paddingTop={10}
+        paddingInline={2}
+      >
+        <Typography
+          variant='h4'
+          fontFamily={'var(--font-title)'}
+          fontWeight={600}
+          align='center'
+          gutterBottom
+        >
+          Happy Customers
+        </Typography>
+        <Box></Box>
+      </Box> */}
     </>
   )
 }
