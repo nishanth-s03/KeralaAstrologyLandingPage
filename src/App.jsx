@@ -120,7 +120,7 @@ const App = () => {
 
       <Box
         id='testimonials'
-        paddingBlock={5}
+        paddingBlockStart={5}
         paddingInline={2}
       >
         <Typography
@@ -139,7 +139,8 @@ const App = () => {
 
       <Box
         id='contact'
-        paddingBlock={10}
+        paddingBlock={5}
+        paddingBlockStart={10}
         paddingInline={2}
         display={'flex'}
         flexDirection={'column'}

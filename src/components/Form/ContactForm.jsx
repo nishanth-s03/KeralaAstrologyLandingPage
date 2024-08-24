@@ -7,9 +7,14 @@ import {
   Divider,
   TextField,
   Typography,
+  Alert,
+  Collapse,
 } from '@mui/material'
 import PropTypes from 'prop-types'
 import { CallOutlined, EmailOutlined } from '@mui/icons-material'
+import axios from 'axios'
+
+const mailUrl = import.meta.env.VITE_MAIL_URL
 
 const InputField = ({
   label,
@@ -17,8 +22,24 @@ const InputField = ({
   value,
   onChange,
   type = 'text',
+  maxLength,
+  pattern,
   ...props
 }) => {
+  const handleInput = (e) => {
+    if (type === 'tel') {
+      e.target.value = e.target.value
+        .replace(/(?!^\+)[^\d]/g, '')
+        .replace(/^(\d+|\+\d*).*/, '$1')
+    }
+  }
+
+  const handleClick = (e) => {
+    if (e.target.value) {
+      e.target.select()
+    }
+  }
+
   return (
     <TextField
       label={label}
@@ -27,7 +48,10 @@ const InputField = ({
       type={type}
       value={value}
       onChange={onChange}
+      onInput={handleInput}
+      onClick={handleClick}
       sx={{ fontFamily: 'var(--font-title)' }}
+      inputProps={{ maxLength, pattern }}
       required
       {...props}
     />
@@ -40,6 +64,8 @@ InputField.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string,
+  maxLength: PropTypes.number,
+  pattern: PropTypes.string,
 }
 
 const ContactForm = ({ links }) => {
@@ -50,31 +76,80 @@ const ContactForm = ({ links }) => {
     message: '',
   })
 
+  const [buttonText, setButtonText] = useState('Send message')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [alertMessage, setAlertMessage] = useState('')
+  const [alertSeverity, setAlertSeverity] = useState('success')
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }))
+    if (buttonText !== 'Send message') {
+      setButtonText('Send message')
+    }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setFormData({
-      name: '',
-      contactNumber: '',
-      email: '',
-      message: '',
-    })
+    setIsSubmitting(true)
+    setButtonText('Sending...')
+
+    const { name, contactNumber, email, message } = formData
+
+    try {
+      await axios.post(`${mailUrl}`, {
+        name,
+        phone: contactNumber,
+        email,
+        message,
+      })
+      setAlertMessage('Your message was sent successfully!')
+      setAlertSeverity('success')
+      setButtonText('Sent')
+    } catch (error) {
+      console.error('Error sending message:', error)
+      setAlertMessage('Failed to send your message. Please try again later.')
+      setAlertSeverity('error')
+      setButtonText('Failed to send')
+    } finally {
+      setIsSubmitting(false)
+      setFormData({
+        name: '',
+        contactNumber: '',
+        email: '',
+        message: '',
+      })
+
+      setTimeout(() => {
+        setButtonText('Send message')
+      }, 3000)
+    }
   }
 
   return (
     <Box
       display={'flex'}
       flexDirection={'column'}
-      gap={1}
+      gap={2}
+      maxWidth={350}
+      position={'relative'}
     >
+      <Collapse
+        in={!!alertMessage}
+        sx={{ position: 'absolute', bottom: 0, right: 'auto', zIndex: 999 }}
+      >
+        <Alert
+          severity={alertSeverity}
+          onClose={() => setAlertMessage('')}
+          sx={{ alignItems: 'center' }}
+        >
+          {alertMessage}
+        </Alert>
+      </Collapse>
+
       <Card sx={{ maxWidth: 350, aspectRatio: 1 / 1 }}>
         <CardContent>
           <Typography
@@ -116,6 +191,8 @@ const ContactForm = ({ links }) => {
                   label='Contact Number'
                   name='contactNumber'
                   type='tel'
+                  pattern='[0-9]{13}'
+                  maxLength={13}
                   value={formData.contactNumber}
                   onChange={handleChange}
                 />
@@ -139,11 +216,12 @@ const ContactForm = ({ links }) => {
                 type='submit'
                 variant='outlined'
                 color='inherit'
+                disabled={isSubmitting}
                 sx={{
                   mt: 1,
                 }}
               >
-                Send message
+                {buttonText}
               </Button>
             </Box>
           </form>

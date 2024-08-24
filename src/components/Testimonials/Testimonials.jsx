@@ -65,6 +65,7 @@ const Testimonials = () => {
         <Typography
           variant='h6'
           fontWeight={600}
+          fontFamily={'var(--font-title)'}
         >
           {testimonials[selectedTab].username}
         </Typography>
@@ -72,6 +73,7 @@ const Testimonials = () => {
           variant='body1'
           fontStyle='italic'
           marginTop={1}
+          minHeight={100}
         >
           {`"${testimonials[selectedTab].comment}"`}
         </Typography>

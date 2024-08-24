@@ -98,7 +98,7 @@ const Home = ({ isSmallScreen, links }) => {
         align='center'
         gutterBottom
       >
-        No. 1 Astrologer in Dakshina Kannada
+        {`India's Famous Astrologer`}
       </Typography>
       <Box
         display={'flex'}
@@ -127,10 +127,10 @@ const Home = ({ isSmallScreen, links }) => {
           subTitle='Astrologer'
         />
         <HomeCard
-          imageSrc='/assets/home/students.jpg'
+          imageSrc='/assets/services/love_problem.jpg'
           altTitle='Results'
-          mainTitle='Free'
-          subTitle='for students'
+          mainTitle='Discount'
+          subTitle='on love problems'
         />
       </Box>
     </>

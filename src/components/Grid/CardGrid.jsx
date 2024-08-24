@@ -1,5 +1,73 @@
+import { useState, useEffect, useRef } from 'react'
 import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material'
+
 import Image from '/assets/vintage-4167444.svg'
+import PropTypes from 'prop-types'
+
+const CountUp = ({ end, duration, subtitle, symbol = '' }) => {
+  const [count, setCount] = useState(0)
+  const ref = useRef()
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          const startTime = performance.now()
+          const step = () => {
+            const currentTime = performance.now()
+            const progress = Math.min((currentTime - startTime) / duration, 1)
+            const randomStep = Math.floor(Math.random() * (end / 10)) + 1
+            setCount((prev) =>
+              prev + randomStep > end ? end : prev + randomStep
+            )
+            if (progress < 1) {
+              requestAnimationFrame(step)
+            }
+          }
+          requestAnimationFrame(step)
+          observer.unobserve(ref.current)
+        }
+      },
+      { threshold: 0.5 }
+    )
+    observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [end, duration])
+
+  return (
+    <Box
+      display={'flex'}
+      flexDirection={{ xs: 'row', sm: 'column' }}
+      alignItems={{ xs: 'flex-end', sm: 'flex-start' }}
+      gap={{ xs: 1, sm: 0 }}
+      pb={0.25}
+    >
+      <Typography
+        ref={ref}
+        variant='h5'
+        fontFamily={'var(--font-title)'}
+        fontWeight={600}
+        sx={{ fontVariantNumeric: 'tabular-nums' }}
+      >
+        {count === end ? `${count}${symbol} ` : `${count} `}
+      </Typography>
+      <Typography
+        variant='subtitle1'
+        fontFamily={'var(--font-title)'}
+        textTransform={'uppercase'}
+      >
+        {subtitle}
+      </Typography>
+    </Box>
+  )
+}
+
+CountUp.propTypes = {
+  end: PropTypes.number.isRequired,
+  duration: PropTypes.number.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  symbol: PropTypes.string,
+}
 
 const CardGrid = () => {
   return (
@@ -22,6 +90,7 @@ const CardGrid = () => {
         width={'100%'}
         sx={{
           maxWidth: 300,
+          paddingBlockStart: { xs: 2, sm: 0 },
           paddingInlineStart: { xs: 0, sm: 2 },
           marginInline: { xs: 'auto', sm: 0 },
           aspectRatio: 1 / 1,
@@ -76,6 +145,7 @@ const CardGrid = () => {
         <Box
           width={'100%'}
           display={'flex'}
+          flexWrap={'wrap'}
           gap={1}
         >
           <Card
@@ -84,6 +154,7 @@ const CardGrid = () => {
               background: 'var(--dark)',
               color: 'var(--light)',
               fontFamily: 'var(--font-title)',
+              maxWidth: { sm: 'calc(70% + 1rem)' },
             }}
           >
             <Typography
@@ -112,41 +183,26 @@ const CardGrid = () => {
               background: 'var(--dark)',
               color: 'var(--light)',
               fontFamily: 'var(--font-title)',
-              minWidth: 'calc(20% + 1rem)',
+              minWidth: 'calc(15% + 1rem)',
+              width: { xs: '100%', sm: 'calc(20% + 1rem)' },
               display: 'flex',
               flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: { xs: 'center', sm: 'flex-start' },
             }}
           >
-            <Typography
-              variant='h5'
-              fontFamily={'var(--font-title)'}
-              fontWeight={600}
-            >
-              403
-            </Typography>
-            <Typography
-              variant='body2'
-              fontFamily={'var(--font-title)'}
-              textTransform={'uppercase'}
-              gutterBottom
-            >
-              Founded
-            </Typography>
-            <Typography
-              variant='h5'
-              fontFamily={'var(--font-title)'}
-              fontWeight={600}
-            >
-              1001+
-            </Typography>
-            <Typography
-              variant='body2'
-              fontFamily={'var(--font-title)'}
-              textTransform={'uppercase'}
-              gutterBottom
-            >
-              clients
-            </Typography>
+            <CountUp
+              end={403}
+              duration={2500}
+              subtitle='Founded'
+            />
+
+            <CountUp
+              end={1001}
+              duration={2500}
+              subtitle='Clients'
+              symbol='+'
+            />
           </Card>
         </Box>
       </CardContent>

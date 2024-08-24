@@ -55,8 +55,8 @@ const ContactSection = ({ Logo, isSmallScreen, links }) => {
           <iframe
             src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.4817843623778!2d74.8486057!3d12.876712199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35bc4e70f0a1f%3A0xdabecd1941b2207!2sKERALA%20KUTTICHATHAN%20JYOTHISHYARU!5e0!3m2!1sen!2sin!4v1724437718234!5m2!1sen!2sin'
             width={'100%'}
-            style={{ border: 0, aspectRatio: 1 / 1 }}
-            allowfullscreen=''
+            style={{ border: 0, aspectRatio: 4 / 3 }}
+            allowFullScreen=''
             loading='lazy'
             referrerPolicy='no-referrer-when-downgrade'
           ></iframe>
