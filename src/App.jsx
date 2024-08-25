@@ -15,24 +15,38 @@ import Home from './components/home/Home'
 import Testimonials from './components/Testimonials/Testimonials'
 
 import Logo from '/assets/Mahakali_Maa.webp'
-import img from '/assets/116656.png'
+import img from '/assets/116656.webp'
 
 import services from './data/services.json'
 import links from './data/link.json'
 import ContactSection from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
+import { useRef } from 'react'
 
 const App = () => {
   const theme = useTheme()
   const isSmallScreen = useMediaQuery(theme.breakpoints.up('sm'))
   const columns = isSmallScreen ? [0, 1, 2] : [0]
+  const homeRef = useRef(null)
+  const aboutRef = useRef(null)
+  const servicesRef = useRef(null)
+  const testimonialRef = useRef(null)
+  const contactRef = useRef(null)
 
   return (
     <>
-      <Navbar links={links} />
-
+      <Navbar
+        links={links}
+        refs={{
+          home: homeRef,
+          about: aboutRef,
+          services: servicesRef,
+          testimonials: testimonialRef,
+          contact: contactRef,
+        }}
+      />
       <Box
-        id='home'
+        ref={homeRef}
         padding={2}
       >
         <Home
@@ -40,11 +54,9 @@ const App = () => {
           links={links}
         />
       </Box>
-
       <Divider />
-
       <Box
-        id='about'
+        ref={aboutRef}
         marginBlock={2}
         paddingInline={2}
         paddingTop={10}
@@ -61,11 +73,9 @@ const App = () => {
         </Typography>
         <CardGrid />
       </Box>
-
       <Divider />
-
       <Box
-        id='services'
+        ref={servicesRef}
         padding={1}
         paddingBlock={5}
         paddingTop={10}
@@ -115,11 +125,9 @@ const App = () => {
           ))}
         </Box>
       </Box>
-
       <Divider />
-
       <Box
-        id='testimonials'
+        ref={testimonialRef}
         paddingBlockStart={5}
         paddingInline={2}
       >
@@ -134,11 +142,9 @@ const App = () => {
         </Typography>
         <Testimonials />
       </Box>
-
       <Divider />
-
       <Box
-        id='contact'
+        ref={contactRef}
         paddingBlock={5}
         paddingBlockStart={10}
         paddingInline={2}
@@ -161,8 +167,16 @@ const App = () => {
           links={links}
         />
       </Box>
-
-      <Footer links={links} />
+      <Footer
+        links={links}
+        refs={{
+          home: homeRef,
+          about: aboutRef,
+          services: servicesRef,
+          testimonials: testimonialRef,
+          contact: contactRef,
+        }}
+      />
     </>
   )
 }

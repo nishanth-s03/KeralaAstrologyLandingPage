@@ -109,25 +109,25 @@ const Home = ({ isSmallScreen, links }) => {
         gap={1}
       >
         <HomeCard
-          imageSrc='/assets/home/1395711.jpg'
+          imageSrc='/assets/home/1395711.webp'
           altTitle='Results'
           mainTitle='Guaranteed results'
           subTitle='100% results'
         />
         <HomeCard
-          imageSrc='/assets/home/world.jpg'
+          imageSrc='/assets/home/world.webp'
           altTitle='Worldwide'
           mainTitle='Worldwide'
           subTitle='services'
         />
         <HomeCard
-          imageSrc='/assets/home/116656.png'
+          imageSrc='/assets/116656.webp'
           altTitle='Friendly'
           mainTitle='Friendly'
           subTitle='Astrologer'
         />
         <HomeCard
-          imageSrc='/assets/services/love_problem.jpg'
+          imageSrc='/assets/services/love_problem.webp'
           altTitle='Results'
           mainTitle='Discount'
           subTitle='on love problems'

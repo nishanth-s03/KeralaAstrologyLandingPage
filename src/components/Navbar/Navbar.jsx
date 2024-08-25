@@ -66,39 +66,19 @@ FloatingBar.propTypes = {
   phone: PropTypes.string.isRequired,
 }
 
-const Menubar = ({ anchorEl, handleClose, open }) => {
+const Menubar = ({ anchorEl, handleClose, open, handleNavigation, refs }) => {
   return (
     <Menu
       anchorEl={anchorEl}
       open={open}
       onClose={handleClose}
     >
-      <MenuItem
-        component='a'
-        onClick={handleClose}
-        href='#home'
-      >
-        Home
-      </MenuItem>
-      <MenuItem
-        component='a'
-        onClick={handleClose}
-        href='#about'
-      >
-        About
-      </MenuItem>
-      <MenuItem
-        component='a'
-        onClick={handleClose}
-        href='#services'
-      >
+      <MenuItem onClick={() => handleNavigation(refs.home)}>Home</MenuItem>
+      <MenuItem onClick={() => handleNavigation(refs.about)}>About</MenuItem>
+      <MenuItem onClick={() => handleNavigation(refs.services)}>
         Services
       </MenuItem>
-      <MenuItem
-        component='a'
-        onClick={handleClose}
-        href='#contact'
-      >
+      <MenuItem onClick={() => handleNavigation(refs.contact)}>
         Contact
       </MenuItem>
     </Menu>
@@ -112,6 +92,14 @@ Menubar.propTypes = {
   ]),
   open: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
+  handleNavigation: PropTypes.func.isRequired,
+  refs: PropTypes.shape({
+    home: PropTypes.object.isRequired,
+    about: PropTypes.object.isRequired,
+    services: PropTypes.object.isRequired,
+    testimonials: PropTypes.object.isRequired,
+    contact: PropTypes.object.isRequired,
+  }).isRequired,
 }
 
 const Header = ({ links }) => {
@@ -155,6 +143,7 @@ const Header = ({ links }) => {
         display={{ xs: 'none', sm: 'flex' }}
         flex={1}
         gap={1}
+        alignItems={'center'}
       >
         <Button
           startIcon={<PlaceOutlined fontSize='small' />}
@@ -237,7 +226,7 @@ Header.propTypes = {
   }).isRequired,
 }
 
-const Navbar = ({ links }) => {
+const Navbar = ({ links, refs }) => {
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
@@ -245,6 +234,11 @@ const Navbar = ({ links }) => {
   }
   const handleClose = () => {
     setAnchorEl(null)
+  }
+
+  const handleNavigation = (sectionRef) => {
+    sectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+    handleClose()
   }
 
   const theme = useTheme()
@@ -303,9 +297,42 @@ const Navbar = ({ links }) => {
               </Typography>
             </Typography>
           </Box>
+          {/* Inline menu for sm and up */}
+          <Box
+            display={{ xs: 'none', md: 'flex' }}
+            justifyContent='center'
+            alignItems='center'
+          >
+            <Button
+              color='inherit'
+              onClick={() => handleNavigation(refs.home)}
+            >
+              Home
+            </Button>
+            <Button
+              color='inherit'
+              onClick={() => handleNavigation(refs.about)}
+            >
+              About
+            </Button>
+            <Button
+              color='inherit'
+              onClick={() => handleNavigation(refs.services)}
+            >
+              Services
+            </Button>
+            <Button
+              color='inherit'
+              onClick={() => handleNavigation(refs.contact)}
+            >
+              Contact
+            </Button>
+          </Box>
+          {/* Mobile menu button */}
           <IconButton
             onClick={handleClick}
             aria-label='menu dropdown'
+            sx={{ display: { xs: 'flex', md: 'none' } }}
           >
             <MenuOutlined htmlColor='var(--dark)' />
           </IconButton>
@@ -314,6 +341,8 @@ const Navbar = ({ links }) => {
           anchorEl={anchorEl}
           handleClose={handleClose}
           open={open}
+          handleNavigation={handleNavigation}
+          refs={refs}
         />
       </AppBar>
     </>
@@ -328,6 +357,13 @@ Navbar.propTypes = {
     facebookLink: PropTypes.string.isRequired,
     instagramLink: PropTypes.string.isRequired,
     youtubeLink: PropTypes.string.isRequired,
+  }).isRequired,
+  refs: PropTypes.shape({
+    home: PropTypes.object.isRequired,
+    about: PropTypes.object.isRequired,
+    services: PropTypes.object.isRequired,
+    testimonials: PropTypes.object.isRequired,
+    contact: PropTypes.object.isRequired,
   }).isRequired,
 }
 

@@ -138,7 +138,7 @@ const CardGrid = () => {
           >
             Madhavan Poduval (Thantri) who present oneself from a family of
             astrologists and features a rich amount of data throughout. He has
-            studied astrology from his forefathers as his prime subjects
+            studied astrology from his forefathers as his prime subjects.
           </Typography>
         </Card>
 

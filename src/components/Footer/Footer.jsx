@@ -1,4 +1,4 @@
-import { Box, Typography, Link, IconButton } from '@mui/material'
+import { Box, Typography, IconButton } from '@mui/material'
 import {
   Facebook,
   Instagram,
@@ -9,7 +9,11 @@ import {
 } from '@mui/icons-material'
 import PropTypes from 'prop-types'
 
-const Footer = ({ links }) => {
+const Footer = ({ links = {}, refs = {} }) => {
+  const handleNavigation = (sectionRef) => {
+    sectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <Box
       component='footer'
@@ -27,14 +31,14 @@ const Footer = ({ links }) => {
         flexWrap='wrap'
       >
         <Box
-          component={'a'}
-          href={links.locationLink}
+          component='a'
+          href={links.locationLink || '#'}
           target='_blank'
-          color={'var(--light)'}
+          color='var(--light)'
         >
           <Typography
             variant='h6'
-            fontFamily={'var(--font-title)'}
+            fontFamily='var(--font-title)'
             fontWeight={600}
             gutterBottom
           >
@@ -42,8 +46,8 @@ const Footer = ({ links }) => {
           </Typography>
           <Typography
             variant='body2'
-            fontFamily={'var(--font-title)'}
-            textTransform={'capitalize'}
+            fontFamily='var(--font-title)'
+            textTransform='capitalize'
           >
             Madhavan poduval (thantri),
             <br />
@@ -56,7 +60,7 @@ const Footer = ({ links }) => {
         <Box>
           <Typography
             variant='h6'
-            fontFamily={'var(--font-title)'}
+            fontFamily='var(--font-title)'
             gutterBottom
           >
             Quick Links
@@ -65,97 +69,113 @@ const Footer = ({ links }) => {
             display='flex'
             flexDirection='column'
           >
-            <Link
-              href='#home'
+            <Typography
+              component='a'
+              onClick={() => handleNavigation(refs.home)}
               color='inherit'
-              underline='hover'
+              sx={{ cursor: 'pointer', textDecoration: 'none', mb: 1 }}
             >
               Home
-            </Link>
-            <Link
-              href='#about'
+            </Typography>
+            <Typography
+              component='a'
+              onClick={() => handleNavigation(refs.about)}
               color='inherit'
-              underline='hover'
+              sx={{ cursor: 'pointer', textDecoration: 'none', mb: 1 }}
             >
               About
-            </Link>
-            <Link
-              href='#services'
+            </Typography>
+            <Typography
+              component='a'
+              onClick={() => handleNavigation(refs.services)}
               color='inherit'
-              underline='hover'
+              sx={{ cursor: 'pointer', textDecoration: 'none', mb: 1 }}
             >
               Services
-            </Link>
-            <Link
-              href='#contact'
+            </Typography>
+            <Typography
+              component='a'
+              onClick={() => handleNavigation(refs.contact)}
               color='inherit'
-              underline='hover'
+              sx={{ cursor: 'pointer', textDecoration: 'none' }}
             >
               Contact
-            </Link>
+            </Typography>
           </Box>
         </Box>
 
         <Box>
           <Typography
             variant='h6'
-            fontFamily={'var(--font-title)'}
+            fontFamily='var(--font-title)'
             gutterBottom
           >
-            Follow Us
+            Follow On
           </Typography>
           <Box display='flex'>
-            <IconButton
-              color='inherit'
-              href={`mailto:${links.email}`}
-              aria-label='Email'
-            >
-              <EmailOutlined />
-            </IconButton>
+            {links.email && (
+              <IconButton
+                color='inherit'
+                href={`mailto:${links.email}`}
+                aria-label='Email'
+              >
+                <EmailOutlined />
+              </IconButton>
+            )}
 
-            <IconButton
-              color='inherit'
-              href={links.facebookLink}
-              target='_blank'
-              aria-label='Facebook'
-            >
-              <Facebook />
-            </IconButton>
+            {links.facebookLink && (
+              <IconButton
+                color='inherit'
+                href={links.facebookLink}
+                target='_blank'
+                aria-label='Facebook'
+              >
+                <Facebook />
+              </IconButton>
+            )}
 
-            <IconButton
-              color='inherit'
-              href={links.instagramLink}
-              target='_blank'
-              aria-label='Instagram'
-            >
-              <Instagram />
-            </IconButton>
+            {links.instagramLink && (
+              <IconButton
+                color='inherit'
+                href={links.instagramLink}
+                target='_blank'
+                aria-label='Instagram'
+              >
+                <Instagram />
+              </IconButton>
+            )}
 
-            <IconButton
-              color='inherit'
-              href={`tel:${links.phone}`}
-              aria-label='Phone'
-            >
-              <CallOutlined />
-            </IconButton>
+            {links.phone && (
+              <IconButton
+                color='inherit'
+                href={`tel:${links.phone}`}
+                aria-label='Phone'
+              >
+                <CallOutlined />
+              </IconButton>
+            )}
 
-            <IconButton
-              color='inherit'
-              href={`https://wa.me/${links.phone}/`}
-              target='_blank'
-              aria-label='WhatsApp'
-            >
-              <WhatsApp />
-            </IconButton>
+            {links.phone && (
+              <IconButton
+                color='inherit'
+                href={`https://wa.me/${links.phone}/`}
+                target='_blank'
+                aria-label='WhatsApp'
+              >
+                <WhatsApp />
+              </IconButton>
+            )}
 
-            <IconButton
-              color='inherit'
-              href={links.youtubeLink}
-              target='_blank'
-              aria-label='Youtube'
-            >
-              <YouTube />
-            </IconButton>
+            {links.youtubeLink && (
+              <IconButton
+                color='inherit'
+                href={links.youtubeLink}
+                target='_blank'
+                aria-label='YouTube'
+              >
+                <YouTube />
+              </IconButton>
+            )}
           </Box>
         </Box>
       </Box>
@@ -167,7 +187,7 @@ const Footer = ({ links }) => {
         <Typography
           variant='body2'
           color='inherit'
-          fontFamily={'var(--font-title)'}
+          fontFamily='var(--font-title)'
         >
           &copy; {new Date().getFullYear()} Kerala Kuttichathan Jyothisyalaya.
           All rights reserved.
@@ -179,13 +199,19 @@ const Footer = ({ links }) => {
 
 Footer.propTypes = {
   links: PropTypes.shape({
-    email: PropTypes.string.isRequired,
-    facebookLink: PropTypes.string.isRequired,
-    instagramLink: PropTypes.string.isRequired,
-    locationLink: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired,
-    youtubeLink: PropTypes.string.isRequired,
+    email: PropTypes.string,
+    facebookLink: PropTypes.string,
+    instagramLink: PropTypes.string,
+    locationLink: PropTypes.string,
+    phone: PropTypes.string,
+    youtubeLink: PropTypes.string,
   }),
+  refs: PropTypes.shape({
+    home: PropTypes.object.isRequired,
+    about: PropTypes.object.isRequired,
+    services: PropTypes.object.isRequired,
+    contact: PropTypes.object.isRequired,
+  }).isRequired,
 }
 
 export default Footer

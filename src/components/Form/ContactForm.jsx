@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Box,
   Button,
@@ -129,6 +129,16 @@ const ContactForm = ({ links }) => {
     }
   }
 
+  useEffect(() => {
+    if (alertMessage) {
+      const timer = setTimeout(() => {
+        setAlertMessage('')
+      }, 5000) // 5 seconds timeout
+
+      return () => clearTimeout(timer) // Cleanup timeout on component unmount or alertMessage change
+    }
+  }, [alertMessage])
+
   return (
     <Box
       display={'flex'}
@@ -191,10 +201,11 @@ const ContactForm = ({ links }) => {
                   label='Contact Number'
                   name='contactNumber'
                   type='tel'
-                  pattern='[0-9]{13}'
-                  maxLength={13}
+                  pattern='^(\+?[0-9]{10,15})$'
+                  maxLength={15}
                   value={formData.contactNumber}
                   onChange={handleChange}
+                  title='Please enter a number between 10 to 13 digits'
                 />
               </Box>
               <InputField
