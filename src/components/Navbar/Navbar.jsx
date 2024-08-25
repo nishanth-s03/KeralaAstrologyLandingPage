@@ -11,6 +11,7 @@ import {
   Divider,
   useMediaQuery,
   useTheme,
+  Link,
 } from '@mui/material'
 import {
   PlaceOutlined,
@@ -73,10 +74,42 @@ const Menubar = ({ anchorEl, handleClose, open }) => {
       open={open}
       onClose={handleClose}
     >
-      <MenuItem href='#home'>Home</MenuItem>
-      <MenuItem href='#about'>About</MenuItem>
-      <MenuItem href='#services'>Services</MenuItem>
-      <MenuItem href='#contact'>Contact</MenuItem>
+      <MenuItem onClick={handleClose}>
+        <Link
+          href='#home'
+          color='inherit'
+          underline='none'
+        >
+          Home
+        </Link>
+      </MenuItem>
+      <MenuItem onClick={handleClose}>
+        <Link
+          href='#about'
+          color='inherit'
+          underline='none'
+        >
+          About
+        </Link>
+      </MenuItem>
+      <MenuItem onClick={handleClose}>
+        <Link
+          href='#services'
+          color='inherit'
+          underline='none'
+        >
+          Services
+        </Link>
+      </MenuItem>
+      <MenuItem onClick={handleClose}>
+        <Link
+          href='#contact'
+          color='inherit'
+          underline='none'
+        >
+          Contact
+        </Link>
+      </MenuItem>
     </Menu>
   )
 }
