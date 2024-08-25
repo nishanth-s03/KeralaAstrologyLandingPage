@@ -9,11 +9,7 @@ import {
 } from '@mui/icons-material'
 import PropTypes from 'prop-types'
 
-const Footer = ({ links = {}, refs = {} }) => {
-  const handleNavigation = (sectionRef) => {
-    sectionRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
-
+const Footer = ({ links = {} }) => {
   return (
     <Box
       component='footer'
@@ -71,7 +67,7 @@ const Footer = ({ links = {}, refs = {} }) => {
           >
             <Typography
               component='a'
-              onClick={() => handleNavigation(refs.home)}
+              href='#home'
               color='inherit'
               sx={{ cursor: 'pointer', textDecoration: 'none', mb: 1 }}
             >
@@ -79,7 +75,7 @@ const Footer = ({ links = {}, refs = {} }) => {
             </Typography>
             <Typography
               component='a'
-              onClick={() => handleNavigation(refs.about)}
+              href='#about'
               color='inherit'
               sx={{ cursor: 'pointer', textDecoration: 'none', mb: 1 }}
             >
@@ -87,7 +83,7 @@ const Footer = ({ links = {}, refs = {} }) => {
             </Typography>
             <Typography
               component='a'
-              onClick={() => handleNavigation(refs.services)}
+              href='#services'
               color='inherit'
               sx={{ cursor: 'pointer', textDecoration: 'none', mb: 1 }}
             >
@@ -95,7 +91,7 @@ const Footer = ({ links = {}, refs = {} }) => {
             </Typography>
             <Typography
               component='a'
-              onClick={() => handleNavigation(refs.contact)}
+              href='#contact'
               color='inherit'
               sx={{ cursor: 'pointer', textDecoration: 'none' }}
             >
@@ -206,12 +202,6 @@ Footer.propTypes = {
     phone: PropTypes.string,
     youtubeLink: PropTypes.string,
   }),
-  refs: PropTypes.shape({
-    home: PropTypes.object.isRequired,
-    about: PropTypes.object.isRequired,
-    services: PropTypes.object.isRequired,
-    contact: PropTypes.object.isRequired,
-  }).isRequired,
 }
 
 export default Footer

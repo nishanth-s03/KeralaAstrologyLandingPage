@@ -66,21 +66,17 @@ FloatingBar.propTypes = {
   phone: PropTypes.string.isRequired,
 }
 
-const Menubar = ({ anchorEl, handleClose, open, handleNavigation, refs }) => {
+const Menubar = ({ anchorEl, handleClose, open }) => {
   return (
     <Menu
       anchorEl={anchorEl}
       open={open}
       onClose={handleClose}
     >
-      <MenuItem onClick={() => handleNavigation(refs.home)}>Home</MenuItem>
-      <MenuItem onClick={() => handleNavigation(refs.about)}>About</MenuItem>
-      <MenuItem onClick={() => handleNavigation(refs.services)}>
-        Services
-      </MenuItem>
-      <MenuItem onClick={() => handleNavigation(refs.contact)}>
-        Contact
-      </MenuItem>
+      <MenuItem href='#home'>Home</MenuItem>
+      <MenuItem href='#about'>About</MenuItem>
+      <MenuItem href='#services'>Services</MenuItem>
+      <MenuItem href='#contact'>Contact</MenuItem>
     </Menu>
   )
 }
@@ -92,19 +88,12 @@ Menubar.propTypes = {
   ]),
   open: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
-  handleNavigation: PropTypes.func.isRequired,
-  refs: PropTypes.shape({
-    home: PropTypes.object.isRequired,
-    about: PropTypes.object.isRequired,
-    services: PropTypes.object.isRequired,
-    testimonials: PropTypes.object.isRequired,
-    contact: PropTypes.object.isRequired,
-  }).isRequired,
 }
 
 const Header = ({ links }) => {
   return (
     <Box
+      id='home'
       paddingInline={1}
       paddingBlock={0.5}
       display={'flex'}
@@ -226,7 +215,7 @@ Header.propTypes = {
   }).isRequired,
 }
 
-const Navbar = ({ links, refs }) => {
+const Navbar = ({ links }) => {
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
@@ -234,11 +223,6 @@ const Navbar = ({ links, refs }) => {
   }
   const handleClose = () => {
     setAnchorEl(null)
-  }
-
-  const handleNavigation = (sectionRef) => {
-    sectionRef.current?.scrollIntoView({ behavior: 'smooth' })
-    handleClose()
   }
 
   const theme = useTheme()
@@ -305,25 +289,25 @@ const Navbar = ({ links, refs }) => {
           >
             <Button
               color='inherit'
-              onClick={() => handleNavigation(refs.home)}
+              href='#home'
             >
               Home
             </Button>
             <Button
               color='inherit'
-              onClick={() => handleNavigation(refs.about)}
+              href='#about'
             >
               About
             </Button>
             <Button
               color='inherit'
-              onClick={() => handleNavigation(refs.services)}
+              href='#services'
             >
               Services
             </Button>
             <Button
               color='inherit'
-              onClick={() => handleNavigation(refs.contact)}
+              href='#contact'
             >
               Contact
             </Button>
@@ -341,8 +325,6 @@ const Navbar = ({ links, refs }) => {
           anchorEl={anchorEl}
           handleClose={handleClose}
           open={open}
-          handleNavigation={handleNavigation}
-          refs={refs}
         />
       </AppBar>
     </>
@@ -357,13 +339,6 @@ Navbar.propTypes = {
     facebookLink: PropTypes.string.isRequired,
     instagramLink: PropTypes.string.isRequired,
     youtubeLink: PropTypes.string.isRequired,
-  }).isRequired,
-  refs: PropTypes.shape({
-    home: PropTypes.object.isRequired,
-    about: PropTypes.object.isRequired,
-    services: PropTypes.object.isRequired,
-    testimonials: PropTypes.object.isRequired,
-    contact: PropTypes.object.isRequired,
   }).isRequired,
 }
 

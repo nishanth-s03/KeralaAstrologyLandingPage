@@ -1,41 +1,48 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { Box, Tabs, Tab, Avatar, Typography } from '@mui/material'
+import PropTypes from 'prop-types'
 
-const testimonials = [
-  {
-    comment:
-      'The financial predictions were incredibly clear and practical, offering me a solid roadmap to enhance my financial situation. ',
-    username: 'Mahesh',
-  },
-  {
-    comment:
-      'Health issues were a constant worry until I received compassionate guidance and effective remedies that improved my well-being. Feeling grateful for the positive change. ',
-    username: 'Jane Smith',
-  },
-  {
-    comment:
-      'I was separated from my love for the last 2 years. Guruji solved my problem within 48 hrs, Now I am really happy. ',
-    username: 'Alex Johnson',
-  },
-]
-
-const Testimonials = () => {
+const Testimonials = ({ testimonials }) => {
   const [selectedTab, setSelectedTab] = useState(0)
+  const [displayedTestimonials, setDisplayedTestimonials] = useState([])
+  const intervalRef = useRef(null) // Store the interval ID
 
-  const handleChange = (event, newValue) => {
-    setSelectedTab(newValue)
+  // Function to select a random subset of up to 5 testimonials
+  const getRandomTestimonials = (testimonialsList) => {
+    const shuffled = [...testimonialsList].sort(() => 0.5 - Math.random())
+    return shuffled.slice(0, Math.min(5, shuffled.length))
   }
 
-  // Auto-switching logic
-  useEffect(() => {
-    const switchInterval = setInterval(() => {
+  // Memoized function to reset the auto-switch interval
+  const resetAutoSwitch = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current)
+
+    intervalRef.current = setInterval(() => {
       setSelectedTab((prev) =>
-        prev === testimonials.length - 1 ? 0 : prev + 1
+        prev === displayedTestimonials.length - 1 ? 0 : prev + 1
       )
     }, 5000)
+  }, [displayedTestimonials.length])
 
-    return () => clearInterval(switchInterval)
-  }, [setSelectedTab])
+  // Select random testimonials when component mounts or when 'testimonials' prop changes
+  useEffect(() => {
+    const randomTestimonials = getRandomTestimonials(testimonials)
+    setDisplayedTestimonials(randomTestimonials)
+    setSelectedTab(0) // Reset to first tab whenever testimonials change
+    resetAutoSwitch() // Reset the timer when testimonials change
+
+    return () => clearInterval(intervalRef.current) // Clean up the interval on component unmount
+  }, [testimonials, resetAutoSwitch])
+
+  // Handle tab change manually
+  const handleChange = (event, newValue) => {
+    setSelectedTab(newValue)
+    resetAutoSwitch() // Reset the timer when the user manually changes the tab
+  }
+
+  if (displayedTestimonials.length === 0) {
+    return null // You can replace this with a loader or a message if desired
+  }
 
   return (
     <Box>
@@ -44,19 +51,16 @@ const Testimonials = () => {
         onChange={handleChange}
         centered
       >
-        {testimonials.map((testimonial, index) => (
+        {displayedTestimonials.map((testimonial) => (
           <Tab
-            key={index}
-            icon={<Avatar>{testimonial.username[0]}</Avatar>}
+            key={testimonial.id}
+            icon={<Avatar>{testimonial.username.charAt(0)}</Avatar>}
             aria-label={testimonial.username}
           />
         ))}
       </Tabs>
       <Box
-        // marginTop={3}
         padding={2}
-        borderRadius={2}
-        bgcolor={'var(--light)'}
         display={'flex'}
         flexDirection={'column'}
         alignItems={'center'}
@@ -67,7 +71,7 @@ const Testimonials = () => {
           fontWeight={600}
           fontFamily={'var(--font-title)'}
         >
-          {testimonials[selectedTab].username}
+          {displayedTestimonials[selectedTab].username}
         </Typography>
         <Typography
           variant='body1'
@@ -75,11 +79,21 @@ const Testimonials = () => {
           marginTop={1}
           minHeight={100}
         >
-          {`"${testimonials[selectedTab].comment}"`}
+          {`"${displayedTestimonials[selectedTab].comment}"`}
         </Typography>
       </Box>
     </Box>
   )
+}
+
+Testimonials.propTypes = {
+  testimonials: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      comment: PropTypes.string.isRequired,
+      username: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 }
 
 export default Testimonials
