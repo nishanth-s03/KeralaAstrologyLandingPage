@@ -25,8 +25,19 @@ import {
 } from '@mui/icons-material'
 import Logo from '/assets/Mahakali_Maa.webp'
 import PropTypes from 'prop-types'
+import ContactDialog from '../Dialog/ContactDialog'
 
 const FloatingBar = ({ phone }) => {
+  const [open, setOpen] = useState(false)
+
+  const handleClickOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
   return (
     <Box
       position={'fixed'}
@@ -43,7 +54,7 @@ const FloatingBar = ({ phone }) => {
       sx={{ background: 'var(--dark)', boxShadow: '0 0 4px var(--light)' }}
     >
       <IconButton
-        href={`https://wa.me/${phone}`}
+        href={`https://wa.me/${phone[0]}`}
         target='_blank'
       >
         <WhatsApp htmlColor='var(--light)' />
@@ -53,12 +64,19 @@ const FloatingBar = ({ phone }) => {
         orientation='horizontal'
         sx={{ borderColor: 'var(--light)' }}
       />
+
       <IconButton
-        href={`tel:${phone}`}
-        target='_blank'
+        onClick={handleClickOpen}
+        aria-label='Phone'
       >
         <CallOutlined htmlColor='var(--light)' />
       </IconButton>
+
+      <ContactDialog
+        description={phone}
+        open={open}
+        handleClose={handleClose}
+      />
     </Box>
   )
 }

@@ -71,7 +71,7 @@ const Home = ({ isSmallScreen, links }) => {
           </Typography>
           <Button
             variant='outlined'
-            href={`tel:${links.phone}`}
+            href={`tel:${links.phone[0]}`}
             startIcon={<CallOutlined />}
             sx={{ color: 'var(--light)', borderColor: 'var(--light)' }}
           >

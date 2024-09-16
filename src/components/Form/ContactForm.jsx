@@ -268,7 +268,7 @@ const ContactForm = ({ links }) => {
         <Button
           startIcon={<CallOutlined fontSize='small' />}
           color='inherit'
-          href={`tel:${links.phone}`}
+          href={`tel:${links.phone[0]}`}
           aria-label='phone'
           fullWidth
         >
@@ -277,7 +277,37 @@ const ContactForm = ({ links }) => {
             textTransform={'lowercase'}
             fontFamily={'var(--font-title)'}
           >
-            {links.phone}
+            {links.phone[0]}
+          </Typography>
+        </Button>
+        <Button
+          startIcon={<CallOutlined fontSize='small' />}
+          color='inherit'
+          href={`tel:${links.phone[1]}`}
+          aria-label='phone'
+          fullWidth
+        >
+          <Typography
+            variant='caption'
+            textTransform={'lowercase'}
+            fontFamily={'var(--font-title)'}
+          >
+            {links.phone[1]}
+          </Typography>
+        </Button>
+        <Button
+          startIcon={<CallOutlined fontSize='small' />}
+          color='inherit'
+          href={`tel:${links.phone[2]}`}
+          aria-label='phone'
+          fullWidth
+        >
+          <Typography
+            variant='caption'
+            textTransform={'lowercase'}
+            fontFamily={'var(--font-title)'}
+          >
+            {links.phone[2]}
           </Typography>
         </Button>
       </Box>

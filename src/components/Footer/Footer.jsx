@@ -8,8 +8,20 @@ import {
   WhatsApp,
 } from '@mui/icons-material'
 import PropTypes from 'prop-types'
+import ContactDialog from '../Dialog/ContactDialog'
+import { useState } from 'react'
 
 const Footer = ({ links = {} }) => {
+  const [open, setOpen] = useState(false)
+
+  const handleClickOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
   return (
     <Box
       component='footer'
@@ -144,17 +156,23 @@ const Footer = ({ links = {} }) => {
             {links.phone && (
               <IconButton
                 color='inherit'
-                href={`tel:${links.phone}`}
+                onClick={handleClickOpen}
                 aria-label='Phone'
               >
                 <CallOutlined />
               </IconButton>
             )}
 
+            <ContactDialog
+              description={links.phone}
+              open={open}
+              handleClose={handleClose}
+            />
+
             {links.phone && (
               <IconButton
                 color='inherit'
-                href={`https://wa.me/${links.phone}/`}
+                href={`https://wa.me/${links.phone[0]}/`}
                 target='_blank'
                 aria-label='WhatsApp'
               >
