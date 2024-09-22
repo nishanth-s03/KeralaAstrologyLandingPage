@@ -24,7 +24,9 @@ const ServiceCard = ({ title, description, image }) => {
     <>
       <Card
         sx={{
-          filter: 'grayscale(1)',
+          filter: 'sepia(0.7) hue-rotate(-30deg) saturate(3)',
+          background: 'var(--orange)',
+          color: 'var(--light)',  
           transform: 'scale(1)',
           transition: 'all 0.3s ease-in',
           [`&:hover`]: {

@@ -51,7 +51,7 @@ const FloatingBar = ({ phone }) => {
       border={'1px solid var(--light)'}
       borderRight={0}
       borderRadius={'1rem 0 0 1rem'}
-      sx={{ background: 'var(--dark)', boxShadow: '0 0 4px var(--light)' }}
+      sx={{ background: '#F06105', boxShadow: '0 0 4px var(--light)' }}
     >
       <IconButton
         href={`https://wa.me/${phone[0]}`}
@@ -148,6 +148,7 @@ const Header = ({ links }) => {
       paddingInline={1}
       paddingBlock={0.5}
       display={'flex'}
+      backgroundColor={'var(--orange)'}
     >
       {/* display in mobile view only */}
       <Box
@@ -196,7 +197,7 @@ const Header = ({ links }) => {
             variant='caption'
             textTransform={'capitalize'}
           >
-            Bunts Hostel, Mangaluru
+            Kadaba, Karnataka - 574 221.
           </Typography>
         </Button>
 
@@ -241,15 +242,6 @@ const Header = ({ links }) => {
           aria-label='instagram'
         >
           <Instagram htmlColor='var(--dark)' />
-        </IconButton>
-        <IconButton
-          size='small'
-          href={links.youtubeLink}
-          target='_blank'
-          title='YouTube'
-          aria-label='youtube'
-        >
-          <YouTube htmlColor='var(--dark)' />
         </IconButton>
       </Box>
     </Box>
@@ -321,14 +313,14 @@ const Navbar = ({ links }) => {
               display={'flex'}
               flexDirection={'column'}
             >
-              Kerala Kuttichathan Jyothisyalaya
+              Shree Chamundeshwari Devi Jyothisyalaya
               <Typography
                 variant='caption'
                 fontFamily={'var(--font-title)'}
                 textTransform={'capitalize'}
                 component={'span'}
               >
-                Madhavan poduval (thantri)
+                Shree Pandith Nagarajan
               </Typography>
             </Typography>
           </Box>

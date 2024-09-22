@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
 import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material'
-
 import Image from '/assets/vintage-4167444.svg'
 import PropTypes from 'prop-types'
 
@@ -111,7 +110,7 @@ const CardGrid = () => {
           sx={{
             width: 'calc(100% - 1rem)',
             padding: 1,
-            background: 'var(--dark)',
+            background: 'var(--orange)',
             color: 'var(--light)',
             fontFamily: 'var(--font-title)',
           }}
@@ -129,14 +128,14 @@ const CardGrid = () => {
             fontFamily={'var(--font-title)'}
             fontWeight={600}
           >
-            Kerala Kuttichathan Jyothisyalaya
+            Shree Chamundeshwari Devi Jyothisyalaya
           </Typography>
           <Typography
             variant='body2'
             fontFamily={'var(--font-title)'}
             gutterBottom
           >
-            Madhavan Poduval (Thantri) who present oneself from a family of
+            Pandith Shree Nagarajan who present oneself from a family of
             astrologists and features a rich amount of data throughout. He has
             studied astrology from his forefathers as his prime subjects.
           </Typography>
@@ -151,7 +150,7 @@ const CardGrid = () => {
           <Card
             sx={{
               padding: 1,
-              background: 'var(--dark)',
+              background: 'var(--orange)',
               color: 'var(--light)',
               fontFamily: 'var(--font-title)',
               maxWidth: { sm: 'calc(70% + 1rem)' },
@@ -170,7 +169,7 @@ const CardGrid = () => {
               fontFamily={'var(--font-title)'}
               gutterBottom
             >
-              {`Madhavan Poduval (Thantri) alongside his father and forefathers have
+              {`Pandith Shree Nagarajan alongside his father and forefathers have
             to preserve their lives by lending a hand to people with their Vedic
             puja's, prayers and rituals based social conduct on Hindu customs
             and other religions.`}
@@ -180,7 +179,7 @@ const CardGrid = () => {
           <Card
             sx={{
               padding: 1,
-              background: 'var(--dark)',
+              background: 'var(--orange)',
               color: 'var(--light)',
               fontFamily: 'var(--font-title)',
               minWidth: 'calc(15% + 1rem)',
@@ -192,13 +191,13 @@ const CardGrid = () => {
             }}
           >
             <CountUp
-              end={403}
+              end={410}
               duration={2500}
               subtitle='Founded'
             />
 
             <CountUp
-              end={1001}
+              end={10001}
               duration={2500}
               subtitle='Clients'
               symbol='+'

@@ -8,6 +8,8 @@
   --light: #f2f2f2;
   --slate-blue: #6a5acd;
   --dark: #111;
+  --orange: #FFA500;
+  --neutral-cream: #F5F5DC;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -37,5 +39,5 @@ body {
   height: 100vh;
   height: 100svh;
 
-  background-color: var(--light);
+  background-color: gainsboro;
 }

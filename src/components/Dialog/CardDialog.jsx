@@ -27,6 +27,7 @@ const CardDialogSlide = ({ open, handleClose, title, description, image }) => {
       onClose={handleClose}
       aria-labelledby='dialog-title'
       aria-describedby='dialog-description'
+      sx={{ '& .MuiDialog-paper': { backgroundColor: '#F06105', color: 'var(--light)' } }}
     >
       <DialogTitle
         id='dialog-title'
@@ -44,7 +45,7 @@ const CardDialogSlide = ({ open, handleClose, title, description, image }) => {
           height={400}
           style={{ borderRadius: 10, objectFit: 'cover' }}
         />
-        <DialogContentText id='dialog-description'>
+        <DialogContentText color={'var(--light)'} id='dialog-description'>
           {description}
         </DialogContentText>
       </DialogContent>

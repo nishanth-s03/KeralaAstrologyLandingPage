@@ -53,10 +53,14 @@ const Testimonials = ({ testimonials }) => {
       >
         {displayedTestimonials.map((testimonial) => (
           <Tab
-            key={testimonial.id}
-            icon={<Avatar>{testimonial.username.charAt(0)}</Avatar>}
-            aria-label={testimonial.username}
-          />
+          key={testimonial.id}
+          icon={
+            <Avatar sx={{ backgroundColor: 'orange' }}>
+              {testimonial.username.charAt(0)}
+            </Avatar>
+          }
+          aria-label={testimonial.username}
+        />
         ))}
       </Tabs>
       <Box

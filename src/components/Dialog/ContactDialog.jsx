@@ -28,6 +28,7 @@ const ContactDialog = ({ open, handleClose, description }) => {
       onClose={handleClose}
       aria-labelledby='dialog-title'
       aria-describedby='dialog-description'
+      sx={{ '& .MuiDialog-paper': { backgroundColor: 'var(--light)', color: '#F06105' } }}
     >
       <DialogTitle
         id='dialog-title'

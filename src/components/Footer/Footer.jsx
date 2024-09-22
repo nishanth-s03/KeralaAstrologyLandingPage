@@ -26,7 +26,7 @@ const Footer = ({ links = {} }) => {
     <Box
       component='footer'
       sx={{
-        backgroundColor: 'var(--dark)',
+        backgroundColor: '#F06105',
         color: 'white',
         padding: '2rem',
         mt: 'auto',
@@ -50,18 +50,18 @@ const Footer = ({ links = {} }) => {
             fontWeight={600}
             gutterBottom
           >
-            Kerala Kuttichathan Jyothisyalaya
+            Shree Chamundeshwari Devi Jyothisyalaya
           </Typography>
           <Typography
             variant='body2'
             fontFamily='var(--font-title)'
             textTransform='capitalize'
           >
-            Madhavan poduval (thantri),
+            Shree Pandith Nagarajan
             <br />
-            Bunts Hostel,
+            Vaibhav Complex, Federal Bank Main Road, 
             <br />
-            Mangaluru, Karnataka - 575 003.
+            Kadaba, Karnataka - 574 221.
           </Typography>
         </Box>
 
@@ -179,17 +179,6 @@ const Footer = ({ links = {} }) => {
                 <WhatsApp />
               </IconButton>
             )}
-
-            {links.youtubeLink && (
-              <IconButton
-                color='inherit'
-                href={links.youtubeLink}
-                target='_blank'
-                aria-label='YouTube'
-              >
-                <YouTube />
-              </IconButton>
-            )}
           </Box>
         </Box>
       </Box>
@@ -203,7 +192,7 @@ const Footer = ({ links = {} }) => {
           color='inherit'
           fontFamily='var(--font-title)'
         >
-          &copy; {new Date().getFullYear()} Kerala Kuttichathan Jyothisyalaya.
+          &copy; {new Date().getFullYear()} Shree Chamudeshwari Devi Jyothisyalaya.
           All rights reserved.
         </Typography>
       </Box>
