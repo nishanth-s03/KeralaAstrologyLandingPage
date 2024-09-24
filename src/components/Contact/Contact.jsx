@@ -33,7 +33,7 @@ const ContactSection = ({ Logo, isSmallScreen, links }) => {
               variant='body2'
               fontFamily={'var(--font-title)'}
             >
-              Shree Chamundeshwari Devi Jyothisyalaya
+             Shree Kerala Bhagavati Jyothisyaru
             </Typography>
             <Typography
               variant='h6'

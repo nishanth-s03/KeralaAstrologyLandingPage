@@ -88,7 +88,7 @@ const Home = ({ isSmallScreen, links }) => {
             Call now
           </Button>
           <Typography
-            variant="subtitle1"
+            variant="body2"
             fontFamily={"cursive"}
             color={"var(--dark)"}
             mt={4}
@@ -97,7 +97,7 @@ const Home = ({ isSmallScreen, links }) => {
             href={links.locationLink}
             target="_blank"
           >
-            ಶ್ರೀ ಚಾಮುಂಡೇಶ್ವರಿ ದೇವಿ ಜ್ಯೋತಿಷ್ಯಾಲಯ <br /> ವೈಭವ ಕಾಂಪ್ಲೆಕ್ಸ್, ಫೆಡರಲ್ ಬ್ಯಾಂಕ್ ಮುಂಬಾಗ ಮುಖ್ಯರಸ್ತೆ ಕಡಬ - 574221
+            ಶ್ರೀ ಕೇರಳ ಭಗವತಿ ಜ್ಯೋತಿಷ್ಯರು <br /> ವೈಭವ ಕಾಂಪ್ಲೆಕ್ಸ್, ಫೆಡರಲ್ ಬ್ಯಾಂಕ್ ಮುಂಬಾಗ ಮುಖ್ಯರಸ್ತೆ ಕಡಬ - 574221
           </Typography>
         </Box>
       </Box>

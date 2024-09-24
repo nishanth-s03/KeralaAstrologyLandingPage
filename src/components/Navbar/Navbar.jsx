@@ -313,7 +313,7 @@ const Navbar = ({ links }) => {
               display={'flex'}
               flexDirection={'column'}
             >
-              Shree Chamundeshwari Devi Jyothisyalaya
+              Shree Kerala Bhagavati Jyothisyaru
               <Typography
                 variant='caption'
                 fontFamily={'var(--font-title)'}

@@ -128,7 +128,7 @@ const CardGrid = () => {
             fontFamily={'var(--font-title)'}
             fontWeight={600}
           >
-            Shree Chamundeshwari Devi Jyothisyalaya
+            Shree Kerala Bhagavati Jyothisyaru
           </Typography>
           <Typography
             variant='body2'

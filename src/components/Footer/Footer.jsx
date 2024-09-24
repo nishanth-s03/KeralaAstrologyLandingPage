@@ -50,7 +50,7 @@ const Footer = ({ links = {} }) => {
             fontWeight={600}
             gutterBottom
           >
-            Shree Chamundeshwari Devi Jyothisyalaya
+            Shree Kerala Bhagavati Jyothisyaru
           </Typography>
           <Typography
             variant='body2'
