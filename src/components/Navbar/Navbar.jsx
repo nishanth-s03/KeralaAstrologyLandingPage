@@ -320,7 +320,7 @@ const Navbar = ({ links }) => {
                 textTransform={'capitalize'}
                 component={'span'}
               >
-                Shree Pandith Nagarajan
+                Shree Pandith Mahashri
               </Typography>
             </Typography>
           </Box>
