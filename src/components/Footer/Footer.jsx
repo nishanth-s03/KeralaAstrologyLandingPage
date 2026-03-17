@@ -57,7 +57,7 @@ const Footer = ({ links = {} }) => {
             fontFamily='var(--font-title)'
             textTransform='capitalize'
           >
-            Shree Pandith Mahshri
+            Shree Pandith Mahashri
             <br />
             Karnataka.
           </Typography>
