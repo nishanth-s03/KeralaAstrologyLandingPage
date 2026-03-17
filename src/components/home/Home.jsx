@@ -58,7 +58,7 @@ const Home = ({ isSmallScreen, links }) => {
             align="center"
             gutterBottom
           >
-            By Shree Pandith Nagarajan
+            By Shree Pandith Mahashri
           </Typography>
           <Typography
             variant="h6"
@@ -97,7 +97,7 @@ const Home = ({ isSmallScreen, links }) => {
             href={links.locationLink}
             target="_blank"
           >
-            ಶ್ರೀ ಕೇರಳ ಭಗವತಿ ಜ್ಯೋತಿಷ್ಯರು <br /> ವೈಭವ ಕಾಂಪ್ಲೆಕ್ಸ್, ಫೆಡರಲ್ ಬ್ಯಾಂಕ್ ಮುಂಬಾಗ ಮುಖ್ಯರಸ್ತೆ ಕಡಬ - 574221
+            ಶ್ರೀ ಕೇರಳ ಭಗವತಿ ಜ್ಯೋತಿಷ್ಯರು <br /> ಕರ್ನಾಟಕ
           </Typography>
         </Box>
       </Box>
