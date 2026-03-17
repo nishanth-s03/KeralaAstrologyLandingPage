@@ -57,11 +57,9 @@ const Footer = ({ links = {} }) => {
             fontFamily='var(--font-title)'
             textTransform='capitalize'
           >
-            Shree Pandith Nagarajan
+            Shree Pandith Mahshri
             <br />
-            Vaibhav Complex, Federal Bank Main Road, 
-            <br />
-            Kadaba, Karnataka - 574 221.
+            Karnataka.
           </Typography>
         </Box>
 
@@ -192,7 +190,7 @@ const Footer = ({ links = {} }) => {
           color='inherit'
           fontFamily='var(--font-title)'
         >
-          &copy; {new Date().getFullYear()} Shree Chamudeshwari Devi Jyothisyalaya.
+          &copy; {new Date().getFullYear()} Shree Kerala Bhagavati Jyothisyalaya.
           All rights reserved.
         </Typography>
       </Box>
