@@ -197,7 +197,7 @@ const Header = ({ links }) => {
             variant='caption'
             textTransform={'capitalize'}
           >
-            Kadaba, Karnataka - 574 221.
+           Karnataka
           </Typography>
         </Button>
 
