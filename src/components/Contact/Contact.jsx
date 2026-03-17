@@ -40,7 +40,7 @@ const ContactSection = ({ Logo, isSmallScreen, links }) => {
               fontFamily={'var(--font-title)'}
               gutterBottom
             >
-              Shree Pandith Nagarajan
+              Shree Pandith Mahashri
             </Typography>
             <Divider />
           </Box>
